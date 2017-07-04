@@ -25,7 +25,7 @@ def acc(predicted, real):
 
 
 dataset = load_data("data/")
-vectorizer = TfidfVectorizer(analyzer="word", ngram_range=(1,2))
+vectorizer = TfidfVectorizer(analyzer="word", ngram_range=(2,2))
 X = vectorizer.fit_transform([x["text"] for x in dataset[0]])
 nb = GaussianNB()
 nb.fit(X.toarray(), [x["sentiment"] for x in dataset[0]])
